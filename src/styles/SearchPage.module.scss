@@ -1,0 +1,62 @@
+//Imports
+
+@import "../scss/exports";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Shadows+Into+Light&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+//Search page style
+
+.search_page {
+  @include flex($flex_dir: row);
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../public/images/logo2.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: "Inter", sans-serif;
+  &_cont {
+    position: absolute;
+    margin-bottom: 9rem;
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+    font-family: "Shadows Into Light", cursive;
+    letter-spacing: 2px;
+  }
+  .search_page_input {
+    @include flex();
+    width: 170px;
+    height: 35px;
+    border: 2px solid rgb(57, 67, 117);
+    border-radius: 15px;
+    outline: none;
+    transition: width 0.4s ease-in-out;
+    &:focus {
+      width: 600px;
+      font-size: 16px;
+      padding: 10px;
+    }
+    &::placeholder {
+      color: rgb(110, 107, 107);
+      opacity: 1;
+      font-size: 16px;
+      padding: 5px, 10px;
+    }
+    &_btn {
+      position: absolute;
+      right: 31%;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      background: none;
+      cursor: pointer;
+    }
+  }
+}

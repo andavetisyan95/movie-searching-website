@@ -1,0 +1,26 @@
+@import "../scss/exports";
+
+.search_result {
+  width: 100%;
+  height: auto;
+  &_back {
+    @include flex($justify_dir: flex-start, $flex_dir: row);
+    @include titleStyle();
+    background-color: rgb(240, 240, 240);
+    &_title {
+      margin-left: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    &_btn {
+      cursor: pointer;
+      width: 45px;
+      margin-left: 10px;
+      padding: 1px;
+      background-color: white;
+      border: none;
+      border-radius: 2rem;
+    }
+  }
+}

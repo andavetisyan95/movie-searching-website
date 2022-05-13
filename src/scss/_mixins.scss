@@ -1,0 +1,31 @@
+@mixin flex($justify_dir: center, $align_dir: center, $flex_dir: column) {
+  display: flex;
+  justify-content: $justify_dir;
+  align-items: $align_dir;
+  flex-direction: $flex_dir;
+}
+
+@mixin grid($grid_temp: repeat(5, 1fr), $gap: 70px, $col_gap: 8px) {
+  display: grid;
+  grid-template-columns: $grid_temp;
+  row-gap: $gap;
+  column-gap: $col_gap;
+}
+
+@mixin titleStyle(
+  $title_top: 0,
+  $title_left: 0,
+  $width: 100%,
+  $posit: fixed,
+  $index: 1,
+  $opacity: 0.7,
+  $board_style: 2px solid rgb(165, 159, 159)
+) {
+  top: $title_top;
+  left: $title_left;
+  width: $width;
+  position: $posit;
+  z-index: $index;
+  opacity: $opacity;
+  border-bottom: $board_style;
+}
