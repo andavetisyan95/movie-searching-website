@@ -6,6 +6,7 @@ import { searchAPI, key, imgAPI } from "../helpers/consts";
 import noImg from "../public/images/noImg.jpg";
 //styles
 import s from "../styles/SearchResult.module.scss";
+import Loading from "./Loading";
 
 export default function SearchResult() {
   //react hooks
@@ -20,6 +21,8 @@ export default function SearchResult() {
     fetch(`${searchAPI}search/movie?api_key=${key}&query=${movieTitle}`)
       .then(res => res.json())
       .then(results => setMovies(results.results));
+
+    setLoading(true);
   }, []);
   console.log(movies);
   return (
@@ -34,18 +37,22 @@ export default function SearchResult() {
         <h3 className={s.search_result_back_title}>{movieTitle}</h3>
       </div>
       <div className={s.movie_result}>
-        {movies.map(elem => {
-          return (
-            <div key={elem.id} className={s.movie_result_card}>
-              <img
-                className={s.movie_result_card_img}
-                src={elem.poster_path ? imgAPI + elem.poster_path : noImg}
-                alt="filmPoster"
-              />
-              <h3 className={s.movie_result_card_title}>{elem.title}</h3>
-            </div>
-          );
-        })}
+        {loading ? (
+          movies.map(elem => {
+            return (
+              <div key={elem.id} className={s.movie_result_card}>
+                <img
+                  className={s.movie_result_card_img}
+                  src={elem.poster_path ? imgAPI + elem.poster_path : noImg}
+                  alt="filmPoster"
+                />
+                <h3 className={s.movie_result_card_title}>{elem.title}</h3>
+              </div>
+            );
+          })
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   );
