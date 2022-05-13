@@ -29,7 +29,7 @@
     font-family: "Shadows Into Light", cursive;
     letter-spacing: 2px;
   }
-  .search_page_input {
+  &_input {
     @include flex();
     width: 170px;
     height: 35px;
@@ -57,6 +57,7 @@
       letter-spacing: 0.5px;
       background: none;
       cursor: pointer;
+      margin-top: -10px;
     }
   }
 }

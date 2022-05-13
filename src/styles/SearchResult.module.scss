@@ -24,3 +24,37 @@
     }
   }
 }
+
+.movie_result {
+  @include grid();
+  margin-top: 100px;
+  margin-left: 70px;
+  &_card {
+    display: flex;
+    position: relative;
+    width: 200px;
+    height: auto;
+    &_img {
+      width: 200px;
+      height: 250px;
+      position: absolute;
+      top: 0;
+      border-radius: 10px 10px 0 0;
+      cursor: pointer;
+      object-fit: cover;
+    }
+    &_title {
+      margin-top: 250px;
+      background-color: rgb(240, 240, 240);
+      width: 200px;
+      font-size: 15px;
+      height: auto;
+      border-radius: 0 0 10px 10px;
+      color: black;
+      font-weight: 700;
+      text-align: center;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+    }
+  }
+}
