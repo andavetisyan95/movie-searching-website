@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
 //consts
 import { searchAPI, key, imgAPI } from "../helpers/consts";
 //images
@@ -40,14 +41,14 @@ export default function SearchResult() {
         {loading ? (
           movies.map(elem => {
             return (
-              <div key={elem.id} className={s.movie_result_card}>
+              <Link to={`/aboutMovie/${elem.id}`} key={elem.id} className={s.movie_result_card}>
                 <img
                   className={s.movie_result_card_img}
                   src={elem.poster_path ? imgAPI + elem.poster_path : noImg}
                   alt="filmPoster"
                 />
                 <h3 className={s.movie_result_card_title}>{elem.title}</h3>
-              </div>
+              </Link>
             );
           })
         ) : (

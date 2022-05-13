@@ -1,0 +1,74 @@
+@import "../scss/exports";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Quintessential&family=Shadows+Into+Light&display=swap");
+
+.about_movie {
+  width: 100%;
+  height: 100vh;
+  @include flex($justify_dir: space-between, $align_dir: flex-start);
+  &_cont {
+    margin-top: 100px;
+    background-color: rgb(240, 240, 235);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    &_div {
+      @include flex($justify_dir: flex-start, $flex_dir: row);
+      margin-left: 70px;
+      padding: 15px;
+      &_img {
+        object-fit: cover;
+        cursor: pointer;
+        width: 200px;
+        height: 240px;
+      }
+      &_div {
+        @include flex($align_dir: flex-start);
+        position: relative;
+        border: 2px solid rgb(102, 100, 100);
+        border-radius: 15px;
+        padding: 8px;
+        width: 800px;
+        height: 300px;
+        margin-left: 35px;
+        background-color: rgb(219, 214, 209);
+        &_title {
+          font-weight: 700;
+          position: absolute;
+          top: 5%;
+          letter-spacing: 0.3px;
+          font-family: "Shadows Into Light", cursive;
+          font-size: 32px;
+        }
+        &_text {
+          position: absolute;
+          text-align: justify;
+          width: auto;
+          height: auto;
+          top: 40%;
+          letter-spacing: 0.1px;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+}
+.about_movie_back {
+  @include flex($justify_dir: flex-start, $flex_dir: row);
+  @include titleStyle();
+  padding: 1px;
+  background-color: rgb(240, 240, 240);
+  &_title {
+    margin-left: 15px;
+    text-transform: uppercase;
+    font-family: "Inter", sans-serif;
+  }
+  &_btn {
+    cursor: pointer;
+    width: 45px;
+    margin-left: 10px;
+    padding: 1px;
+    background-color: white;
+    border: none;
+    border-radius: 2rem;
+  }
+}
