@@ -17,8 +17,10 @@ export default function AboutMovie() {
     fetch(`${searchAPI}movie/${movieId}?api_key=${key}`)
       .then(res => res.json())
       .then(results => setAboutFilm(results));
-  }, []);
+  }, [movieId]);
+
   console.log(aboutFilm);
+
   return (
     <div className={s.about_movie}>
       <div className={s.about_movie_back}>
