@@ -1,9 +1,9 @@
 //react hooks
 import { Route, Routes } from "react-router";
 //componets
-import SearchPage from "./components/SearchPage";
-import SearchResult from "./components/SearchResult";
-import AboutMovie from "./components/AboutMovie";
+import SearchPage from "./pages/SearchPage";
+import SearchResult from "./pages/SearchResult";
+import AboutMovie from "./pages/AboutMovie";
 //styles
 import "./App.css";
 

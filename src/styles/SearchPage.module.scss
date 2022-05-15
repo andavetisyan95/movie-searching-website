@@ -52,12 +52,15 @@
       position: absolute;
       right: 31%;
       border: none;
-      font-size: 16px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
       background: none;
       cursor: pointer;
-      margin-top: -10px;
+      &_link {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+      }
     }
   }
 }

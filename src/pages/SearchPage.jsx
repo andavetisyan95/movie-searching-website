@@ -1,6 +1,6 @@
 //react hooks
 import React, { useState } from "react";
-
+// components
 import { Link } from "react-router-dom";
 
 //styles
@@ -19,9 +19,21 @@ export default function SearchPage() {
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
-      <Link to={`/searchResult/${title}`}>
-        <button className={s.search_page_input_btn}>Search</button>
-      </Link>
+      <button className={s.search_page_input_btn}>
+        <Link className={s.search_page_input_btn_link} to={`/searchResult/${title}`}>
+          Search
+        </Link>
+      </button>
     </div>
   );
 }
+
+// let search;
+// if (e.target.value) {
+//   search = {
+//     keyword: e.target.value
+//   };
+// } else {
+//   search = undefined;
+// }
+// setSearchParams(search, { replace: true });
