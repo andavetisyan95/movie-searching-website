@@ -1,0 +1,114 @@
+@import "../scss/exports";
+
+.about_movie {
+  width: 100%;
+  height: 100vh;
+  @include flex($justify_dir: space-between, $align_dir: flex-start);
+  &_cont {
+    margin-top: 100px;
+    background-color: rgb(240, 240, 235);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    &_div {
+      @include flex($justify_dir: flex-start, $flex_dir: row);
+      margin-left: 70px;
+      padding: 15px;
+      &_img {
+        object-fit: cover;
+        cursor: pointer;
+        width: 200px;
+        height: 240px;
+      }
+      &_div {
+        @include flex($align_dir: flex-start);
+        position: relative;
+        border: 2px solid rgb(102, 100, 100);
+        border-radius: 15px;
+        padding: 8px;
+        width: 800px;
+        height: 300px;
+        margin-left: 35px;
+        background-color: rgb(219, 214, 209);
+
+        &_title {
+          font-weight: 700;
+          position: absolute;
+          top: 5%;
+          letter-spacing: 0.3px;
+          font-family: "Shadows Into Light", cursive;
+          font-size: 32px;
+        }
+        &_text {
+          position: absolute;
+          width: 800px;
+          height: auto;
+          top: 40%;
+          letter-spacing: 0.1px;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+}
+
+.movie_actors {
+  margin-top: 500px;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  background-color: rgb(240, 240, 235);
+  height: auto;
+  @include grid($grid_temp: repeat(140, auto));
+  overflow: scroll;
+  &_cont {
+    width: 170px;
+    height: auto;
+    margin-left: 15px;
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    &_img {
+      width: 170px;
+      height: 200px;
+      border-radius: 15px 15px 0 0;
+    }
+    &_div {
+      @include flex();
+      &_name {
+        font-weight: bold;
+        font-size: 17px;
+      }
+      &_char {
+        margin-top: -5px;
+      }
+    }
+  }
+}
+
+.movie_trailers {
+  margin-top: 900px;
+  width: 100%;
+  height: auto;
+  left: 0;
+  position: absolute;
+  background-color: rgb(240, 240, 235);
+  @include grid($grid_temp: repeat(100, auto));
+  overflow: scroll;
+  &_cont {
+    width: 350px;
+    height: 220px;
+    margin-left: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    background-color: #97999b;
+    outline: none;
+    border-radius: 15px;
+    @include flex();
+    &_video {
+      width: 270px;
+      height: 180px;
+    }
+  }
+}
