@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
+//components
+import Loading from "../components/Loading";
 import MoviePreview from "../components/AboutMovie/MoviePreview";
 import PagesHeder from "../components/PagesHeder";
 //consts
@@ -10,19 +12,22 @@ import s from "../styles/AboutMovie.module.scss";
 
 export default function AboutMovie() {
   const { movieId } = useParams();
-  const navigate = useNavigate();
   //state
   const [aboutFilm, setAboutFilm] = useState();
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     fetch(`${searchAPI}movie/${movieId}?api_key=${key}`)
       .then(res => res.json())
-      .then(results => setAboutFilm(results));
+      .then(results => {
+        setAboutFilm(results);
+        setLoading(true);
+      });
   }, []);
 
   return (
     <div className={s.about_movie}>
       <PagesHeder movieTitle={aboutFilm?.title} />
-      <MoviePreview aboutFilm={aboutFilm} />
+      {loading ? <MoviePreview aboutFilm={aboutFilm} /> : <Loading />}
     </div>
   );
 }

@@ -18,25 +18,31 @@ export default function SearchResult() {
   const { movieTitle } = useParams();
   //states
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch(`${searchAPI}search/movie?api_key=${key}&query=${movieTitle}`)
       .then(res => res.json())
-      .then(results => setMovies(results.results));
-    setLoading(false);
+      .then(results => {
+        setMovies(results.results);
+        setLoading(true);
+      });
   }, []);
 
   return (
     <div>
       <PagesHeder movieTitle={movieTitle} />
       <div className={s.movie_result}>
-        {movies.map(({ id, title, poster_path }) => (
-          <Link to={`/aboutMovie/${id}`} key={id} className={s.movie_result_card}>
-            <img className={s.movie_result_card_img} src={poster_path ? imgAPI + poster_path : noImg} alt="filmPoster" />
-            <h3 className={s.movie_result_card_title}>{title}</h3>
-          </Link>
-        ))}
+        {loading ? (
+          movies.map(({ id, title, poster_path }) => (
+            <Link to={`/aboutMovie/${id}`} key={id} className={s.movie_result_card}>
+              <img className={s.movie_result_card_img} src={poster_path ? imgAPI + poster_path : noImg} alt="filmPoster" />
+              <h3 className={s.movie_result_card_title}>{title}</h3>
+            </Link>
+          ))
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   );
