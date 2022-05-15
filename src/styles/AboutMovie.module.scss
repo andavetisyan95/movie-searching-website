@@ -32,9 +32,9 @@
         margin-left: 35px;
         background-color: rgb(219, 214, 209);
         &_title {
-          font-weight: 700;
           position: absolute;
-          top: 5%;
+          top: 10px;
+          font-weight: 700;
           letter-spacing: 0.3px;
           font-family: "Shadows Into Light", cursive;
           font-size: 32px;
@@ -44,31 +44,10 @@
           text-align: justify;
           width: auto;
           height: auto;
-          top: 40%;
           letter-spacing: 0.1px;
           line-height: 25px;
         }
       }
     }
-  }
-}
-.about_movie_back {
-  @include flex($justify_dir: flex-start, $flex_dir: row);
-  @include titleStyle();
-  padding: 1px;
-  background-color: rgb(240, 240, 240);
-  &_title {
-    margin-left: 15px;
-    text-transform: uppercase;
-    font-family: "Inter", sans-serif;
-  }
-  &_btn {
-    cursor: pointer;
-    width: 45px;
-    margin-left: 10px;
-    padding: 1px;
-    background-color: white;
-    border: none;
-    border-radius: 2rem;
   }
 }

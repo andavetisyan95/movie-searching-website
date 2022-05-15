@@ -17,7 +17,9 @@ export default function MoviePreview({ aboutFilm }) {
         />
         <div className={s.about_movie_cont_div_div}>
           <div className={s.about_movie_cont_div_div_title}>{aboutFilm?.title}</div>
-          <div className={s.about_movie_cont_div_div_text}>{aboutFilm?.overview}</div>
+          <div className={s.about_movie_cont_div_div_text}>
+            {aboutFilm?.overview ? aboutFilm?.overview : "There is nothing about movie overview."}
+          </div>
         </div>
       </div>
     </div>

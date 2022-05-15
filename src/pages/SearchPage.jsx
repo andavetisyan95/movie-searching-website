@@ -27,13 +27,3 @@ export default function SearchPage() {
     </div>
   );
 }
-
-// let search;
-// if (e.target.value) {
-//   search = {
-//     keyword: e.target.value
-//   };
-// } else {
-//   search = undefined;
-// }
-// setSearchParams(search, { replace: true });
