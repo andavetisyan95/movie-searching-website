@@ -1,0 +1,36 @@
+@import "../scss/exports";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../public/images/errors/badReq.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  background-color: rgb(235, 230, 229);
+  &_div {
+    position: relative;
+    bottom: 100px;
+    &_btn {
+      border-radius: 30px;
+      width: 300px;
+      height: 60px;
+      background-color: rgb(253, 150, 68);
+      @include flex($flex_dir: "row");
+      gap: 15px;
+      cursor: pointer;
+      &_text {
+        font-size: 22px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+      }
+      &_img {
+        width: 70px;
+        height: 60px;
+      }
+    }
+  }
+}

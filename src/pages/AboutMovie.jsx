@@ -24,14 +24,6 @@ export default function AboutMovie() {
   useLayoutEffect(() => {
     fetchAllInfo();
   }, []);
-  // useEffect(() => {
-  //   fetch(`${searchAPI}movie/${movieId}?api_key=${key}`)
-  //     .then(res => res.json())
-  //     .then(results => {
-  //       setAboutFilm(results);
-  //       setLoading(true);
-  //     });
-  // }, []);
 
   async function fetchAllInfo() {
     const [aboutFilm, actors, movieTrailers] = await Promise.all([
@@ -51,7 +43,7 @@ export default function AboutMovie() {
     <div className={s.about_movie}>
       <PagesHeder movieTitle={movieInfo?.aboutFilm.title} />
       {loading ? <MoviePreview aboutFilm={movieInfo?.aboutFilm} /> : <Loading />}
-      <MovieActors actors={movieInfo?.actors} />
+      {loading ? <MovieActors actors={movieInfo?.actors} /> : <Loading />}
     </div>
   );
 }
