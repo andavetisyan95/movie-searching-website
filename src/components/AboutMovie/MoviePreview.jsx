@@ -12,13 +12,13 @@ export default function MoviePreview({ aboutFilm }) {
       <div className={s.about_movie_cont_div}>
         <img
           className={s.about_movie_cont_div_img}
-          src={aboutFilm?.poster_path ? imgAPI + aboutFilm?.poster_path : noImg}
+          src={aboutFilm.poster_path ? imgAPI + aboutFilm.poster_path : noImg}
           alt="filmPoster"
         />
         <div className={s.about_movie_cont_div_div}>
-          <div className={s.about_movie_cont_div_div_title}>{aboutFilm?.title}</div>
+          <div className={s.about_movie_cont_div_div_title}>{aboutFilm.title}</div>
           <div className={s.about_movie_cont_div_div_text}>
-            {aboutFilm?.overview ? aboutFilm?.overview : "There is nothing about movie overview."}
+            {aboutFilm.overview ? aboutFilm.overview : "There is nothing about movie overview."}
           </div>
         </div>
       </div>
