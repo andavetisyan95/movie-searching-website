@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useLocation } from "react-router";
 //components
 import Loading from "../components/Loading";
 import MoviePreview from "../components/AboutMovie/MoviePreview";
@@ -9,12 +9,13 @@ import MovieTrailers from "../components/AboutMovie/MovieTrailers";
 
 //consts
 //consts
-import { searchAPI, key, imgAPI } from "../helpers/consts";
+import { searchAPI, key } from "../helpers/consts";
 //styles
 import s from "../styles/AboutMovie.module.scss";
 
 export default function AboutMovie() {
-  const { movieId } = useParams();
+  const location = useLocation();
+  const movieId = location.search.split("?")[1].split("=")[2];
   //state
   // const [aboutFilm, setAboutFilm] = useState([]);
   // const [actors, setActors] = useState([]);
@@ -43,9 +44,15 @@ export default function AboutMovie() {
   return (
     <div className={s.about_movie}>
       <PagesHeder movieTitle={movieInfo?.aboutFilm.title} />
-      {loading ? <MoviePreview aboutFilm={movieInfo?.aboutFilm} /> : <Loading />}
-      {loading ? <MovieActors actors={movieInfo?.actors} /> : <Loading />}
-      {loading ? <MovieTrailers movieTrailers={movieInfo?.movieTrailers} /> : <Loading />}
+      {loading ? (
+        <>
+          <MoviePreview aboutFilm={movieInfo?.aboutFilm} />
+          <MovieActors actors={movieInfo?.actors} />
+          <MovieTrailers movieTrailers={movieInfo?.movieTrailers} />
+        </>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 }

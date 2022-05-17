@@ -13,7 +13,7 @@
 //Search page style
 
 .search_page {
-  @include flex($flex_dir: row);
+  @include flex();
   width: 100vw;
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../public/images/logo2.jpg");
@@ -21,46 +21,55 @@
   background-position: center;
   font-family: "Inter", sans-serif;
   &_cont {
-    position: absolute;
-    margin-bottom: 9rem;
     font-size: 60px;
     color: white;
     font-weight: bold;
     font-family: "Shadows Into Light", cursive;
     letter-spacing: 2px;
   }
-  &_input {
-    @include flex();
-    width: 170px;
-    height: 35px;
-    border: 2px solid rgb(57, 67, 117);
-    border-radius: 15px;
-    outline: none;
-    transition: width 0.4s ease-in-out;
-    &:focus {
-      width: 600px;
-      font-size: 16px;
-      padding: 10px;
-    }
-    &::placeholder {
-      color: rgb(110, 107, 107);
-      opacity: 1;
-      font-size: 16px;
-      padding: 5px, 10px;
-    }
-    &_btn {
-      position: absolute;
-      right: 31%;
-      border: none;
-      background: none;
-      cursor: pointer;
-      &_link {
-        text-decoration: none;
-        color: black;
+  &_div {
+    @include flex($flex_dir: row);
+    &_input {
+      @include flex();
+      width: 170px;
+      height: 35px;
+      border: 2px solid rgb(57, 67, 117);
+      border-radius: 15px;
+      outline: none;
+      transition: width 0.4s ease-in-out;
+      &:focus {
+        width: 600px;
         font-size: 16px;
-        font-weight: bold;
-        letter-spacing: 0.5px;
+        padding: 10px;
+      }
+      &::placeholder {
+        color: rgb(110, 107, 107);
+        opacity: 1;
+        font-size: 16px;
+        padding: 5px, 10px;
+      }
+      &_btn {
+        position: absolute;
+        right: 31%;
+        border: none;
+        background: none;
+        cursor: pointer;
+        &_link {
+          text-decoration: none;
+          color: black;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0.5px;
+        }
       }
     }
+  }
+  &_res {
+    color: black;
+    display: $resultDisplay;
+    width: 595px;
+    background-color: white;
+    border-radius: 15px;
+    height: auto;
   }
 }

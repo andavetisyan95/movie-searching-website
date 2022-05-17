@@ -13,8 +13,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<SearchPage />} />
-        <Route path="/searchResult/:movieTitle" element={<SearchResult />} />
-        <Route path="/aboutMovie/:movieId" element={<AboutMovie />} />
+        <Route path="/searchResult" element={<SearchResult />} />
+        <Route path="/aboutMovie" element={<AboutMovie />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
