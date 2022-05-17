@@ -58,17 +58,18 @@
   left: 0;
   position: absolute;
   background-color: rgb(240, 240, 235);
-  height: auto;
+  height: 370px;
   @include grid($grid_temp: repeat(140, auto));
   overflow: scroll;
   &_cont {
+    align-self: center;
     width: 170px;
-    height: auto;
     margin-left: 15px;
     margin-top: 15px;
     background-color: white;
     border-radius: 15px;
     cursor: pointer;
+    height: 300px;
     &_img {
       width: 170px;
       height: 200px;

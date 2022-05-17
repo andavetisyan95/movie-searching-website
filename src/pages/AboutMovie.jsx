@@ -5,6 +5,7 @@ import Loading from "../components/Loading";
 import MoviePreview from "../components/AboutMovie/MoviePreview";
 import MovieActors from "../components/AboutMovie/MovieActors";
 import PagesHeder from "../components/PagesHeder";
+import MovieTrailers from "../components/AboutMovie/MovieTrailers";
 
 //consts
 //consts
@@ -44,6 +45,7 @@ export default function AboutMovie() {
       <PagesHeder movieTitle={movieInfo?.aboutFilm.title} />
       {loading ? <MoviePreview aboutFilm={movieInfo?.aboutFilm} /> : <Loading />}
       {loading ? <MovieActors actors={movieInfo?.actors} /> : <Loading />}
+      {loading ? <MovieTrailers movieTrailers={movieInfo?.movieTrailers} /> : <Loading />}
     </div>
   );
 }
