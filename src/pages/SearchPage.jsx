@@ -14,7 +14,7 @@ export default function SearchPage() {
 
   const handleEnter = e => {
     if (e.key === "Enter") {
-      if (e.target.value !== undefined) {
+      if (e.target.value !== undefined || e.target.value !== 0) {
         e.preventDefault();
         setTitle(e.target.value);
         navigate(`/searchResult?movie_title=${title}`);

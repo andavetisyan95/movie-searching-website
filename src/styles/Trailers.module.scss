@@ -1,0 +1,27 @@
+@import "../scss/exports";
+
+.movie_trailers {
+  margin-top: 900px;
+  width: 100%;
+  height: auto;
+  left: 0;
+  position: absolute;
+  background-color: rgb(240, 240, 235);
+  @include grid($grid_temp: repeat(100, auto));
+  overflow: scroll;
+  &_cont {
+    width: 350px;
+    height: 220px;
+    margin-left: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    background-color: #97999b;
+    outline: none;
+    border-radius: 15px;
+    @include flex();
+    &_video {
+      width: 270px;
+      height: 180px;
+    }
+  }
+}
