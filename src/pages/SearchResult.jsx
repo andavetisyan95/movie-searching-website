@@ -1,5 +1,5 @@
 //react hooks
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { useLocation } from "react-router";
 
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ import noImg from "../public/images/noImg.jpg";
 import s from "../styles/SearchResult.module.scss";
 import PagesHeder from "../components/PagesHeder";
 
-export default function SearchResult() {
+export default memo(function SearchResult() {
   //get query param with useLocation
   const location = useLocation();
   const movieTitle = location.search.split("?")[1].split("=")[1];
@@ -48,4 +48,4 @@ export default function SearchResult() {
       </div>
     </div>
   );
-}
+});

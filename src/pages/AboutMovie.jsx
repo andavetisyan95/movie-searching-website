@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { memo, useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router";
 //components
 import Loading from "../components/Loading";
@@ -13,13 +13,11 @@ import { searchAPI, key } from "../helpers/consts";
 //styles
 import s from "../styles/AboutMovie.module.scss";
 
-export default function AboutMovie() {
+export default memo(function AboutMovie() {
   const location = useLocation();
   const movieId = location.search.split("?")[1].split("=")[2];
   //state
-  // const [aboutFilm, setAboutFilm] = useState([]);
-  // const [actors, setActors] = useState([]);
-  // const [movieTrailers, setMovieTrailers] = useState([]);
+
   const [movieInfo, setMovieInfo] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -55,4 +53,8 @@ export default function AboutMovie() {
       )}
     </div>
   );
-}
+});
+
+// const [aboutFilm, setAboutFilm] = useState([]);
+// const [actors, setActors] = useState([]);
+// const [movieTrailers, setMovieTrailers] = useState([]);

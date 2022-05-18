@@ -65,11 +65,28 @@
     }
   }
   &_res {
-    color: black;
-    display: $resultDisplay;
+    display: none;
     width: 595px;
     background-color: white;
     border-radius: 15px;
-    height: auto;
+    &_link {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      padding: 15px;
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
   }
+}
+
+.block {
+  display: block;
+  color: black;
+  width: 595px;
+  background-color: white;
+  border-radius: 15px;
+  height: 200px;
+  overflow: scroll;
 }
