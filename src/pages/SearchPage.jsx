@@ -1,16 +1,20 @@
 //react hooks
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { Link, useSearchParams } from "react-router-dom";
-//consts
-import { searchAPI, key } from "../helpers/consts";
+import { Link } from "react-router-dom";
+
 //styles
 import s from "../styles/SearchPage.module.scss";
 
 export default function SearchPage() {
+  //useState hook
   const [title, setTitle] = useState("");
   const [movies, setMovies] = useState([]);
+  //navigate hook
   const navigate = useNavigate();
+
+  //envs
+  const { REACT_APP_SEARCH_API, REACT_APP_PERSONAL_REQUEST_KEY } = process.env;
 
   const handleEnter = e => {
     if (e.key === "Enter") {
@@ -25,7 +29,7 @@ export default function SearchPage() {
   useEffect(() => {
     if (title.length >= 1 && title !== undefined) {
       const handle = setTimeout(() => {
-        fetch(`${searchAPI}search/movie?api_key=${key}&query=${title}`)
+        fetch(`${REACT_APP_SEARCH_API}search/movie${REACT_APP_PERSONAL_REQUEST_KEY}&query=${title}`)
           .then(res => res.json())
           .then(results => {
             setMovies(results.results);

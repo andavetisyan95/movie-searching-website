@@ -1,27 +1,29 @@
-import React, { useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 //components
 import TrailerPopUp from "../Modals/TrailerPopUp";
-//consts
-import { videoAPI } from "../../helpers/consts";
+
 //styles
 import s from "../../styles/Trailers.module.scss";
 
-export default function MovieTrailers({ movieTrailers }) {
+export default memo(function MovieTrailers({ movieTrailers }) {
   const videos = movieTrailers?.results;
+  //state
   const [showPopUp, setShowPopUp] = useState(false);
+  //envs
+  const { REACT_APP_VIDEO_API } = process.env;
 
-  const handleShowModal = () => {
+  const handleShowModal = useCallback(() => {
     setShowPopUp(true);
-  };
-  const handleCloseModal = () => {
+  }, []);
+  const handleCloseModal = useCallback(() => {
     setShowPopUp(false);
-  };
+  }, []);
   return (
     <div className={s.movie_trailers}>
       {videos.length !== 0 ? (
         videos.map(({ id, key }) => (
           <div onClick={handleShowModal} key={id} className={s.movie_trailers_cont}>
-            <iframe className={s.movie_trailers_cont_video} src={videoAPI + key}></iframe>
+            <iframe className={s.movie_trailers_cont_video} src={REACT_APP_VIDEO_API + key}></iframe>
           </div>
         ))
       ) : (
@@ -32,4 +34,4 @@ export default function MovieTrailers({ movieTrailers }) {
       {showPopUp && <TrailerPopUp onClose={handleCloseModal} />}
     </div>
   );
-}
+});
