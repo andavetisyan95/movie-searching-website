@@ -12,16 +12,12 @@ export default function MovieActors({ actors }) {
   return (
     <div className={s.movie_actors}>
       {actorsNames.length !== 0 ? (
-        actorsNames?.map(element => (
-          <div key={element.id} className={s.movie_actors_cont}>
-            <img
-              className={s.movie_actors_cont_img}
-              src={element.profile_path ? imgAPI + element.profile_path : noImg}
-              alt="actors_img"
-            />
+        actorsNames?.map(({ id, profile_path, name, character }) => (
+          <div key={id} className={s.movie_actors_cont}>
+            <img className={s.movie_actors_cont_img} src={profile_path ? imgAPI + profile_path : noImg} alt="actors_img" />
             <div className={s.movie_actors_cont_div}>
-              <p className={s.movie_actors_cont_div_name}>{element.name}</p>
-              <p className={s.movie_actors_cont_div_char}>{element.character}</p>
+              <p className={s.movie_actors_cont_div_name}>{name}</p>
+              <p className={s.movie_actors_cont_div_char}>{character}</p>
             </div>
           </div>
         ))

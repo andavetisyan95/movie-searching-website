@@ -18,11 +18,17 @@ export default function MovieTrailers({ movieTrailers }) {
   };
   return (
     <div className={s.movie_trailers}>
-      {videos.map(video => (
-        <div onClick={handleShowModal} key={video.id} className={s.movie_trailers_cont}>
-          <iframe className={s.movie_trailers_cont_video} src={videoAPI + video.key}></iframe>
+      {videos.length !== 0 ? (
+        videos.map(({ id, key }) => (
+          <div onClick={handleShowModal} key={id} className={s.movie_trailers_cont}>
+            <iframe className={s.movie_trailers_cont_video} src={videoAPI + key}></iframe>
+          </div>
+        ))
+      ) : (
+        <div className={s.noInfo}>
+          <p className={s.noInfo_p}>There is no trailer to show</p>
         </div>
-      ))}
+      )}
       {showPopUp && <TrailerPopUp onClose={handleCloseModal} />}
     </div>
   );
