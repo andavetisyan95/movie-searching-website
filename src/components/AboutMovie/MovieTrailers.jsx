@@ -1,11 +1,11 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 //components
 import TrailerPopUp from "../Modals/TrailerPopUp";
 
 //styles
 import s from "../../styles/Trailers.module.scss";
 
-export default memo(function MovieTrailers({ movieTrailers }) {
+export default function MovieTrailers({ movieTrailers }) {
   const videos = movieTrailers?.results;
   //state
   const [showPopUp, setShowPopUp] = useState(false);
@@ -34,4 +34,4 @@ export default memo(function MovieTrailers({ movieTrailers }) {
       {showPopUp && <TrailerPopUp onClose={handleCloseModal} />}
     </div>
   );
-});
+}

@@ -1,12 +1,11 @@
 import React from "react";
-import { memo } from "react";
 
 //styles
 import s from "../../styles/AboutMovie.module.scss";
 
 import noImg from "../../public/images/noImg.jpg";
 
-export default memo(function MoviePreview({ aboutFilm }) {
+export default function MoviePreview({ aboutFilm }) {
   //env
   const { REACT_APP_IMG_API } = process.env;
 
@@ -27,4 +26,4 @@ export default memo(function MoviePreview({ aboutFilm }) {
       </div>
     </div>
   );
-});
+}
