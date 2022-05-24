@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+//images
+import noImgPic from "../public/images/noImg.jpg";
 
 //styles
 import s from "../styles/SearchPage.module.scss";
@@ -14,7 +16,7 @@ export default function SearchPage() {
   const navigate = useNavigate();
 
   //envs
-  const { REACT_APP_SEARCH_API, REACT_APP_PERSONAL_REQUEST_KEY } = process.env;
+  const { REACT_APP_SEARCH_API, REACT_APP_PERSONAL_REQUEST_KEY, REACT_APP_IMG_API } = process.env;
 
   const handleEnter = e => {
     if (e.key === "Enter") {
@@ -60,9 +62,14 @@ export default function SearchPage() {
         </button>
       </div>
       <div className={title.length >= 1 ? s.block : s.search_page_res}>
-        {movies?.map(({ title, id }) => (
+        {movies?.map(({ title, id, poster_path }) => (
           <Link className={s.search_page_res_link} to={`/aboutMovie?movie_title=${title}&film_id=${id}`} key={id}>
-            {title}
+            <img
+              className={s.search_page_res_link_img}
+              src={poster_path ? REACT_APP_IMG_API + poster_path : noImgPic}
+              alt="moviePoster"
+            />
+            <p className={s.search_page_res_link_p}>{title}</p>
           </Link>
         ))}
       </div>
