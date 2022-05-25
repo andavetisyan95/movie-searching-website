@@ -17,14 +17,14 @@ export default memo(
     const movieTitle = location.search.split("?")[1].split("=")[1];
 
     //envs
-    const { REACT_APP_SEARCH_API, REACT_APP_PERSONAL_REQUEST_KEY, REACT_APP_IMG_API } = process.env;
+    const { REACT_APP_API_SEARCH, REACT_APP_IMG_API } = process.env;
 
     //states
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-      fetch(`${REACT_APP_SEARCH_API}search/movie${REACT_APP_PERSONAL_REQUEST_KEY}&query=${movieTitle}`)
+      fetch(`${REACT_APP_API_SEARCH}${movieTitle}`)
         .then(res => res.json())
         .then(results => {
           setMovies(results.results);

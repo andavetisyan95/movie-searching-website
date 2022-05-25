@@ -7,7 +7,7 @@ import MovieActors from "../components/AboutMovie/MovieActors";
 import PagesHeder from "../components/PagesHeder";
 import MovieTrailers from "../components/AboutMovie/MovieTrailers";
 //consts
-import { searchAPI, key } from "../helpers/consts";
+// import { searchAPI, key } from "../helpers/consts";
 //styles
 import s from "../styles/AboutMovie.module.scss";
 
@@ -19,7 +19,7 @@ export default function AboutMovie() {
   const [loading, setLoading] = useState(false);
 
   // envs not working
-  //const { REACT_APP_SEARCH_API, REACT_APP_PERSONAL_REQUEST_KEY } = process.env;
+  const { REACT_APP_SEARCH_API_MOVIE, REACT_APP_PERSONAL_REQUEST_KEY } = process.env;
 
   useLayoutEffect(() => {
     fetchAllInfo();
@@ -27,9 +27,9 @@ export default function AboutMovie() {
 
   async function fetchAllInfo() {
     const [aboutFilm, actors, movieTrailers] = await Promise.all([
-      fetch(`${searchAPI}movie/${movieId}?api_key=${key}`).then(res => res.json()),
-      fetch(`${searchAPI}movie/${movieId}/credits?api_key=${key}`).then(res => res.json()),
-      fetch(`${searchAPI}movie/${movieId}/videos?api_key=${key}`).then(res => res.json())
+      fetch(`${REACT_APP_SEARCH_API_MOVIE}${movieId}${REACT_APP_PERSONAL_REQUEST_KEY}`).then(res => res.json()),
+      fetch(`${REACT_APP_SEARCH_API_MOVIE}${movieId}/credits${REACT_APP_PERSONAL_REQUEST_KEY}`).then(res => res.json()),
+      fetch(`${REACT_APP_SEARCH_API_MOVIE}${movieId}/videos${REACT_APP_PERSONAL_REQUEST_KEY}`).then(res => res.json())
     ]);
     setMovieInfo({
       aboutFilm,

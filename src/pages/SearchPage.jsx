@@ -16,7 +16,7 @@ export default function SearchPage() {
   const navigate = useNavigate();
 
   //envs
-  const { REACT_APP_SEARCH_API, REACT_APP_PERSONAL_REQUEST_KEY, REACT_APP_IMG_API } = process.env;
+  const { REACT_APP_IMG_API, REACT_APP_API_SEARCH } = process.env;
 
   const handleEnter = e => {
     if (e.key === "Enter") {
@@ -31,7 +31,7 @@ export default function SearchPage() {
   useEffect(() => {
     if (title.length >= 1 && title !== undefined) {
       const handle = setTimeout(() => {
-        fetch(`${REACT_APP_SEARCH_API}search/movie${REACT_APP_PERSONAL_REQUEST_KEY}&query=${title}`)
+        fetch(`${REACT_APP_API_SEARCH}${title}`)
           .then(res => res.json())
           .then(results => {
             setMovies(results.results);
