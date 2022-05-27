@@ -1,6 +1,6 @@
 //react hooks
 import React, { useState, useEffect, memo } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 //components
 import Loading from "../components/Loading";
@@ -15,6 +15,8 @@ export default memo(
     //get query param with useLocation
     const location = useLocation();
     const movieTitle = location.search.split("?")[1].split("=")[1];
+
+    const navigate = useNavigate();
 
     //envs
     const { REACT_APP_API_SEARCH, REACT_APP_IMG_API } = process.env;
