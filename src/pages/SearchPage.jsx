@@ -20,7 +20,7 @@ export default function SearchPage() {
 
   const handleEnter = e => {
     if (e.key === "Enter") {
-      if (e.target.value === undefined || e.target.value === "") {
+      if (!stringArr.includes(movieTitle)) {
         navigate("*");
       } else {
         e.preventDefault();
@@ -74,16 +74,18 @@ export default function SearchPage() {
         </button>
       </div>
       <div className={movieTitle.length >= 1 ? s.block : s.search_page_res}>
-        {movies?.map(({ title, id, poster_path }) => (
-          <Link className={s.search_page_res_link} to={`/aboutMovie?movie_title=${movieTitle}&film_id=${id}`} key={id}>
-            <img
-              className={s.search_page_res_link_img}
-              src={poster_path ? REACT_APP_IMG_API + poster_path : noImgPic}
-              alt="moviePoster"
-            />
-            <p className={s.search_page_res_link_p}>{title}</p>
-          </Link>
-        ))}
+        {stringArr.includes(movieTitle)
+          ? movies?.map(({ title, id, poster_path }) => (
+              <Link className={s.search_page_res_link} to={`/aboutMovie?movie_title=${movieTitle}&film_id=${id}`} key={id}>
+                <img
+                  className={s.search_page_res_link_img}
+                  src={poster_path ? REACT_APP_IMG_API + poster_path : noImgPic}
+                  alt="moviePoster"
+                />
+                <p className={s.search_page_res_link_p}>{title}</p>
+              </Link>
+            ))
+          : "There's no match to show"}
       </div>
     </div>
   );
@@ -99,3 +101,4 @@ export default function SearchPage() {
 //     });
 //   }, [title]);
 // const [isPending, startTransition] = useTransition();
+// e.target.value === undefined || e.target.value === ""
